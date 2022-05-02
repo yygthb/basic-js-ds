@@ -121,12 +121,13 @@ class BinarySearchTree {
         }
 
         // if node has both children
-        let maxFromNodeLeft = node.left;
-        while (maxFromNodeLeft.right) {
-          maxFromNodeLeft = maxFromNodeLeft.right;
+        // let maxFromNodeLeft = node.left;
+        let maxFromLeftNodes = node.left;
+        while (maxFromLeftNodes.right) {
+          maxFromLeftNodes = maxFromLeftNodes.right;
         }
-        node.data = maxFromNodeLeft.data;
-        node.right = removeNode(node.right, maxFromNodeLeft.data);
+        node.data = maxFromLeftNodes.data;
+        node.right = removeNode(node.right, maxFromLeftNodes.data);
 
         return node;
       }
